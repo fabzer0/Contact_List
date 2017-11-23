@@ -56,6 +56,7 @@ def setUp(self):
         contact list
         '''
 
+
         self.new_contact.save_contact()
         test_contact = Contact("Test","user","0712345678","test@user.com") # new contact
 
@@ -76,7 +77,7 @@ def setUp(self):
         found_contact = Contact.find_by_number("0711223344")
 
         self.assertEqual(found_contact.email,test_contact.email)
-        
+
 
 if __name__ == '_main_':
     unittest.main()

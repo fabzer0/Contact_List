@@ -1,3 +1,5 @@
+import pyperclip
+
 class Contact:
     """
     Class that generates new instances of contacts.
@@ -22,21 +24,17 @@ class Contact:
 
         Contact.contact_list.remove(self)
 
-@classmethod
-    def find_by_number(cls,number):
+    @classmethod
+    def display_contacts(cls):
         '''
-        Method that takes in a number and returns a contact that matches that number.
-
-
-        Args:
-            number: Phone number to search for
-        Returns:
-            Contact of person that matches the numberself.
+        method that returns the contact list
         '''
+        return cls.contact_list
 
-        for contact in cls.contact_list:
-            if contact.phone_number == number:
-                return contact
+    @classmethod
+    def copy_email(cls,number):
+        contact_found = Contact.find_by_number(number)
+        pyperclip.copy(contact_found.email)
 
 
     def __init__(self,first_name,last_name,number,email):
